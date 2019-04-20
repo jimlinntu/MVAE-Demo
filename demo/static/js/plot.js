@@ -75,8 +75,8 @@ window.onload = function() {
                     var y = (activePoints._model.y - bottom) / (top - bottom) * (yMax - yMin) + yMin;
                     var x = (activePoints._model.x - left) / (right - left) * (xMax - xMin) + xMin;
 					$.get('/demo/generate_midi/', {'x': x, 'y': y}, function(ret) {
-						console.log(ret);
 						$('#midi').text(ret);
+						$('#midi').attr('href', ret);
 					});
                     console.log("Click point: " + '(' + x  + ',' + y + ')');
                 } else if (yMouse >= top && yMouse <= bottom && xMouse <= right && xMouse >= left) {
@@ -84,7 +84,7 @@ window.onload = function() {
                     var x = (xMouse - left) / (right - left) * (xMax - xMin) + xMin;
                     userPoint['x'] = x;
                     userPoint['y'] = y;
-                    console.log("Move point to: " + '(' + x  + ',' + y + ')');
+                    //console.log("Move point to: " + '(' + x  + ',' + y + ')');
                     window.myScatter.update();
                 }
                 //console.log(x + ',' + y);
