@@ -1,11 +1,13 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from .models import generate_midi
 
 def index(request):
     return render(request, 'demo.html', {'midi': 'default.mid'})
 
-def generate_midi(request):
+def get_midi(request):
     x = float(request.GET['x'])
     y = float(request.GET['y'])
-    return HttpResponse('(%.2f,%.2f).mid' % (x, y))
+    midi_file = generate_midi(x, y)
+    return HttpResponse(midi_file)
 
