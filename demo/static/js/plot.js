@@ -10,8 +10,8 @@ window.chartColors = {
 var color = Chart.helpers.color;
 function randomPoint() {
     return {
-        x: Math.random(),
-        y: Math.random()
+        x: (Math.random() * 3) - 1.5,
+        y: (Math.random() * 3) - 1.5
     };
 };
 var userPoint = randomPoint();
@@ -72,11 +72,14 @@ window.onload = function() {
                 var xMouse = event.offsetX;
                 var activePoints = window.myScatter.getElementAtEvent(event)[0];
                 if (activePoints) {
+					if (ap) {
+						ap.pause()
+						loadPlayer('Loading...', '');
+					}
                     var y = (activePoints._model.y - bottom) / (top - bottom) * (yMax - yMin) + yMin;
                     var x = (activePoints._model.x - left) / (right - left) * (xMax - xMin) + xMin;
-					$.get('/demo/generate_midi/', {'x': x, 'y': y}, function(ret) {
-						$('#midi').text(ret);
-						$('#midi').attr('href', ret);
+					$.get('/demo/generate_wav/', {'x': x, 'y': y}, function(ret) {
+						loadPlayer(ret, wavUrl + '/' + ret);
 					});
                     console.log("Click point: " + '(' + x  + ',' + y + ')');
                 } else if (yMouse >= top && yMouse <= bottom && xMouse <= right && xMouse >= left) {
