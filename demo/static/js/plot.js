@@ -10,8 +10,8 @@ window.chartColors = {
 var color = Chart.helpers.color;
 function randomPoint() {
     return {
-        x: (Math.random() * 3) - 1.5,
-        y: (Math.random() * 3) - 1.5
+        x: (Math.random() * 5) - 2.5,
+        y: (Math.random() * 5) - 2.5
     };
 };
 var userPoint = randomPoint();

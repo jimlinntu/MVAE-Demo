@@ -16,7 +16,7 @@ else:
 if not os.path.exists(wav_dir):
     os.makedirs(wav_dir)
 
-use_cuda = torch.cuda.is_available()
+use_cuda = settings.USE_CUDA and torch.cuda.is_available()
 device = torch.device("cuda:0" if use_cuda else "cpu")
 
 model = torch.load(settings.VAE_MODEL)
