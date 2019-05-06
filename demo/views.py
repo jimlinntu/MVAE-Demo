@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from .models import generate_wav
 
 def index(request):
-    return render(request, 'demo.html', {'midi': 'default.mid'})
+    return render(request, 'index.html', {'midi': 'default.mid'})
 
 def get_wav(request):
     x = float(request.GET['x'])
