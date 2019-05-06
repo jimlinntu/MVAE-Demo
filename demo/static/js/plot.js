@@ -74,7 +74,7 @@ window.onload = function() {
                 if (activePoints) {
 					if (ap) {
 						ap.pause()
-						loadPlayer('Loading...', '');
+						loadPlayer('Loading...', wavUrl + '/loading.wav');
 					}
                     var y = (activePoints._model.y - bottom) / (top - bottom) * (yMax - yMin) + yMin;
                     var x = (activePoints._model.x - left) / (right - left) * (xMax - xMin) + xMin;

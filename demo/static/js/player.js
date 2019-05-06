@@ -4,6 +4,7 @@ function loadPlayer(wav_file, url) {
 	  container: document.getElementById('aplayer'),
 	  audio: [{
 		  name: wav_file,
+          artist: ' ',
 		  url: url,
 	  }]
 	});
@@ -11,12 +12,12 @@ function loadPlayer(wav_file, url) {
 
 var oldOnload = window.onload
 if (typeof window.onload != 'function') {
-	window.onload = loadPlayer('Click a node to generate music', '');
+	window.onload = loadPlayer('Waiting for a click', wavUrl + '/loading.wav');
 } else {
 	window.onload = function() {
 		if (oldOnload) {
 			oldOnload();
 		}
-		loadPlayer('Click a node to generate music', '');
+		loadPlayer('Waiting for a click', wavUrl + '/loading.wav');
 	}
 }

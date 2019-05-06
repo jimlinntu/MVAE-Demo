@@ -28,6 +28,9 @@
 
   // Collapse Navbar
   var navbarCollapse = function() {
+    $("#mainNav").addClass("navbar-scrolled");
+    return;
+        
     if ($("#mainNav").offset().top > 100) {
       $("#mainNav").addClass("navbar-scrolled");
     } else {
