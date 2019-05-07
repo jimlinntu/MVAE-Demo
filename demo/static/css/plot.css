@@ -1,4 +1,5 @@
 #canvas {
-    background-color: #FFF;
+	background: rgb(238,183,167);
+	background: linear-gradient(315deg, rgba(244,98,58,1) 0%, rgba(255,255,255,1) 50%, rgba(244,98,58,1) 100%);
     margin: auto
 }

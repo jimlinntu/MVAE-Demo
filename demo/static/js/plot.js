@@ -5,7 +5,8 @@ window.chartColors = {
 	green: 'rgb(75, 192, 192)',
 	blue: 'rgb(54, 162, 235)',
 	purple: 'rgb(153, 102, 255)',
-	grey: 'rgb(201, 203, 207)'
+	grey: 'rgb(201, 203, 207)',
+	white: 'rgb(255, 255, 255)'
 };
 var color = Chart.helpers.color;
 function randomPoint() {
@@ -22,17 +23,16 @@ function generateData() {
     }
     return data;
 }
-
 var scatterChartData = {
     datasets: [{
-        borderColor: window.chartColors.red,
-        backgroundColor: color(window.chartColors.red).alpha(0.2).rgbString(),
+		borderColor: 'rgba(113, 156, 184, 1)',
+        backgroundColor: 'rgba(113, 156, 184, 0.5)',
         pointRadius: 10,
         pointHoverRadius: 12,
         data: generateData()
     }, {
-        borderColor: window.chartColors.green,
-        backgroundColor: color(window.chartColors.green).alpha(0.2).rgbString(),
+		borderColor: 'rgba(255, 255, 255, 1)',
+        backgroundColor: 'rgba(244, 58, 58, 0.9)',
         pointRadius: 10,
         pointHoverRadius: 12,
         data: [userPoint]	
@@ -44,6 +44,40 @@ window.onload = function() {
     window.myScatter = Chart.Scatter(ctx, {
         data: scatterChartData,
         options: {
+			scales: {
+				xAxes: [{
+					gridLines : {
+						color: 'rgba(255, 255, 255, 1.0)',
+						zeroLineColor: 'rgba(255, 255, 255, 1.0)',
+						//color: 'rgba(113, 156, 184, 1)',
+						//zeroLineColor: 'rgba(113, 156, 184, 1)',
+						display: true,
+						drawTicks: false,
+						drawBorder: false
+					},
+					ticks: {
+						max: 2.99,
+						min: -2.99,
+						display: false
+					}
+				}],
+				yAxes: [{
+					gridLines : {
+						color: 'rgba(255, 255, 255, 1.0)',
+						zeroLineColor: 'rgba(255, 255, 255, 1.0)',
+						//color: 'rgba(113, 156, 184, 1)',
+						//zeroLineColor: 'rgba(113, 156, 184, 1)',
+						display: true,
+						drawTicks: false,
+						drawBorder: false
+					},
+					ticks: {
+						max: 2.99,
+						min: -2.99,
+						display: false
+					}
+				}]
+			},
             legend: {
                 display: false
             },
